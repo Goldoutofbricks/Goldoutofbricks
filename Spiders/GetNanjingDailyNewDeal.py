@@ -26,10 +26,11 @@ print(response.text)
 
 today = datetime.date.today()
 
-Headers = ['Date','NanjingDailyNewOrder','NanjingDailyNewDeal']
-rows = [today,response.text,response.text]
 
-with open('NanjingDailyNewDeal.csv','w') as filecsv:
+FirstRow = ['Date','NanjingDailyNewOrder','NanjingDailyNewDeal']
+rows = [str(today),str(response.text),str(response.text)]
+
+with open(r'C:\myPythonProjects\Goldoutofbricks\NanjingDailyNewDeal.csv','w',newline = "") as filecsv:
         filecsv_csv = csv.writer(filecsv)
-        filecsv_csv.writerow(headers)
-        filecsv_csv.writerows(rows)
+        filecsv_csv.writerow(FirstRow)
+        filecsv_csv.writerows([rows])
